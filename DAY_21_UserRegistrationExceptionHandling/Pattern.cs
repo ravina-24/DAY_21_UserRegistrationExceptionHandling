@@ -7,7 +7,6 @@ namespace UserRegistrationExceptionHandling
     public class Pattern
     {
         public static string Regex_FirstName = "^[A-Z][a-z]{2,}$";
-        
         public bool ValidateFirstName(string FirstName)
         {
             return Regex.IsMatch(FirstName, Regex_FirstName);
@@ -31,7 +30,5 @@ namespace UserRegistrationExceptionHandling
                 Console.WriteLine("Field  ={0}", e.Message);
             }
         }
-
-
     }
 }
