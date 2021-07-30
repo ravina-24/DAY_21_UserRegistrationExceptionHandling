@@ -14,9 +14,6 @@ namespace UserRegistrationExceptionHandling
             FirstName = Console.ReadLine();
             Pattern.checkFirstName(FirstName);
             Console.ReadKey();
-   
-
-
         }
     }
 }
