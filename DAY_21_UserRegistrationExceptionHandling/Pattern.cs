@@ -9,6 +9,7 @@ namespace UserRegistrationExceptionHandling
         public static string Regex_FirstName = "^[A-Z][a-z]{2,}$";
         public static string Regex_LastName = "^[A-Z][a-z]{2,}$";
         public static string Regex_EmailId = "^[A-Z0-9a-z]{1,}([.#$^][A-Za-z0-9]+)?[@][A-Za-z]{2,}[.][A-Za-z]{2,3}([.][a-zA-Z]{2})?$";
+        public static string Regex_PhoneNumber = "^[0-9]{2}[ ][6-9][0-9]{9}$";
         public bool ValidateFirstName(string FirstName)
         {
             return Regex.IsMatch(FirstName, Regex_FirstName);
@@ -83,5 +84,30 @@ namespace UserRegistrationExceptionHandling
                 Console.WriteLine("Field exception ={0}", e.Message);
             }
         }
+        public bool ValidatePhoneNumber(string PhoneNumber)
+        {
+            return Regex.IsMatch(PhoneNumber, Regex_PhoneNumber);
+
+        }
+        public static void CheckNumber(string PhoneNumber)
+        {
+            try
+            {
+                if (PhoneNumber == String.Empty || PhoneNumber == " ")
+                {
+                    throw new ExceptionHandling(ExceptionHandling.ExceptionType.NULL_FIELD, "Field is empty ");
+                }
+                else if (Regex.IsMatch(PhoneNumber, Regex_PhoneNumber) == false)
+                {
+                    throw new ExceptionHandling(ExceptionHandling.ExceptionType.INVALID_INPUT,
+                        "Invalid PhoneNumber  ");
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Field exception ={0}", e.Message);
+            }
+        }
+
     }
 }
