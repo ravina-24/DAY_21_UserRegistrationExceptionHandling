@@ -29,6 +29,12 @@ namespace UserRegistrationExceptionHandling
             PhoneNumber = Console.ReadLine();
             Pattern.CheckNumber(PhoneNumber);
 
+            string Password;
+            Console.Write("Enter Password : ");
+            Password = Console.ReadLine();
+            Pattern.CheckPassword(Password);
+
+
             Console.ReadKey();
         }
     }
