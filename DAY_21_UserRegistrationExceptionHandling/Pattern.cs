@@ -10,8 +10,8 @@ namespace UserRegistrationExceptionHandling
         public static string Regex_LastName = "^[A-Z][a-z]{2,}$";
         public static string Regex_EmailId = "^[A-Z0-9a-z]{1,}([.#$^][A-Za-z0-9]+)?[@][A-Za-z]{2,}[.][A-Za-z]{2,3}([.][a-zA-Z]{2})?$";
         public static string Regex_PhoneNumber = "^[0-9]{2}[ ][6-9][0-9]{9}$";
+        public static string Regex_Password = "^((?=.*[A-Z])(?=.{8,}))";
 
-        public static string Regex_Password = "^[A-Za-z]{8,}$";
         public bool ValidateFirstName(string FirstName)
         {
             return Regex.IsMatch(FirstName, Regex_FirstName);
@@ -127,7 +127,7 @@ namespace UserRegistrationExceptionHandling
                 else if (Regex.IsMatch(Password, Regex_Password) == false)
                 {
                     throw new ExceptionHandling(ExceptionHandling.ExceptionType.INVALID_INPUT,
-                        "Invalid Password. It should  contain atleast minimum 8 characters ");
+                        "Invalid Password. It should  contain atleast one upper case  character ");
                 }
             }
             catch (Exception e)
