@@ -23,6 +23,12 @@ namespace UserRegistrationExceptionHandling
             Console.Write("Enter  Email Id  :");
             EmailId = Console.ReadLine();
             Pattern.CheckEmail(EmailId);
+
+            string PhoneNumber;
+            Console.Write("Enter Phone Number : ");
+            PhoneNumber = Console.ReadLine();
+            Pattern.CheckNumber(PhoneNumber);
+
             Console.ReadKey();
         }
     }
