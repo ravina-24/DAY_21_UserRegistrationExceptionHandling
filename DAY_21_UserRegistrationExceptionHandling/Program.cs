@@ -18,6 +18,11 @@ namespace UserRegistrationExceptionHandling
             Console.Write("Enter Last Name : ");
             Lastname = Console.ReadLine();
             Pattern.checkLastName(Lastname);
+
+            string EmailId;
+            Console.Write("Enter  Email Id  :");
+            EmailId = Console.ReadLine();
+            Pattern.CheckEmail(EmailId);
             Console.ReadKey();
         }
     }
